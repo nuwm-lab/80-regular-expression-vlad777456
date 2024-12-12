@@ -1,18 +1,26 @@
-﻿using System;
+using System;
+using System.Text.RegularExpressions;
 
-namespace LabWork
+class Program
 {
-    // Даний проект є шаблоном для виконання лабораторних робіт
-    // з курсу "Об'єктно-орієнтоване програмування та патерни проектування"
-    // Необхідно змінювати і дописувати код лише в цьому проекті
-    // Відео-інструкції щодо роботи з github можна переглянути 
-    // за посиланням https://www.youtube.com/@ViktorZhukovskyy/videos 
-    class Program
+    static void Main()
     {
-        static void Main(string[] args)
+        string text = @"
+           3 я впевнений що в цьому коді є числа 12 
+        ";
+        Console.WriteLine("введений текст " + text);
+        string pattern = "\\d"; // Регулярний вираз для пошуку цифр
+
+        bool containsDigits = Regex.IsMatch(text, pattern);
+
+        if (containsDigits)
         {
-            
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Текст містить цифри.");
+        }
+        else
+        {
+            Console.WriteLine("Текст не містить цифр.");
         }
     }
+    
 }
